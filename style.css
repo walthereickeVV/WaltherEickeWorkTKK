@@ -1,0 +1,588 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #05080f;
+    color: #f0f4fa;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* ========== ФОНОВАЯ КАРТИНКА (СТРОЙКА) ========== */
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -3;
+    filter: brightness(0.35) contrast(1.1);
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0.5), rgba(5,8,15,0.88));
+    z-index: -2;
+}
+
+/* ========== CANVAS ЧАСТИЦЫ ========== */
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* ========== НАВИГАЦИЯ ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 1px solid rgba(0, 255, 170, 0.25);
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    position: relative;
+    font-size: 32px;
+    color: #00e699;
+}
+
+.logo-sparkle {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    width: 10px;
+    height: 10px;
+    background: #00ffaa;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ffaa;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.8);}
+    50% { opacity: 1; transform: scale(1.2);}
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff, #00e699);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.logo-text .highlight {
+    color: #00e699;
+    background: none;
+    -webkit-background-clip: unset;
+}
+
+.nav-badge {
+    background: rgba(0, 230, 153, 0.15);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 230, 153, 0.4);
+}
+
+/* ========== HERO СЕКЦИЯ ========== */
+.hero {
+    text-align: center;
+    padding: 80px 0 60px;
+    position: relative;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 230, 153, 0.2), transparent);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 10px 24px;
+    border-radius: 60px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.glitch-text {
+    font-size: 4.2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff, #00ffcc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: skew(0deg, 0deg); opacity: 1; }
+    95% { transform: skew(2deg, 1deg); opacity: 0.9; text-shadow: -2px 0 red; }
+    96% { transform: skew(-2deg, -1deg); text-shadow: 2px 0 blue; }
+}
+
+.glitch-text:hover {
+    animation: glitch 0.2s infinite;
+}
+
+.typed-wrapper {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 20px 0 15px;
+}
+
+.typed {
+    background: linear-gradient(135deg, #00e699, #00ffcc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.typed-prefix {
+    color: #aaa;
+}
+
+.hero-sub {
+    font-size: 1.2rem;
+    color: #b0c4de;
+    margin-bottom: 40px;
+}
+
+/* ========== ЗАРПЛАТНЫЕ КАРТОЧКИ ========== */
+.salary-floating {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.salary-card {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    padding: 15px 28px;
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(0, 230, 153, 0.5);
+    transition: 0.3s;
+}
+
+.salary-card:hover {
+    transform: translateY(-3px);
+    border-color: #00e699;
+}
+
+.salary-card i {
+    font-size: 1.5rem;
+    color: #00e699;
+}
+
+.salary-label {
+    font-weight: 500;
+}
+
+.salary-value {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #00ffcc;
+}
+
+.salary-card.accent {
+    background: linear-gradient(135deg, rgba(0, 230, 153, 0.2), rgba(0, 100, 80, 0.3));
+    border-color: #00e699;
+}
+
+/* ========== КНОПКИ ========== */
+.cta-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-outline {
+    padding: 14px 32px;
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(105deg, #00c788, #00a36c);
+    color: white;
+    box-shadow: 0 5px 20px rgba(0, 199, 136, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 199, 136, 0.6);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: #00e699;
+    background: rgba(0, 230, 153, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ========== СТАТИСТИКА ========== */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin: 60px 0;
+}
+
+.stat-card {
+    text-align: center;
+    background: rgba(10, 18, 28, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 28px 20px;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 230, 153, 0.4);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.stat-label {
+    color: #a0b8d0;
+    margin-top: 8px;
+}
+
+/* ========== ВАКАНСИИ ========== */
+.vacancies {
+    margin: 70px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(0, 230, 153, 0.15);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.emoji-big {
+    font-size: 2rem;
+    display: inline-block;
+}
+
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.job-card {
+    background: rgba(15, 25, 38, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 28px;
+    padding: 28px;
+    transition: all 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 230, 153, 0.1), transparent);
+    transition: 0.6s;
+}
+
+.job-card:hover::before {
+    left: 100%;
+}
+
+.job-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(0, 230, 153, 0.5);
+    box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.5);
+}
+
+.job-card.featured {
+    background: linear-gradient(135deg, rgba(0, 80, 60, 0.3), rgba(0, 30, 25, 0.7));
+    border-left: 4px solid #00e699;
+}
+
+.job-icon {
+    font-size: 2.5rem;
+    margin-bottom: 18px;
+}
+
+.job-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.job-salary {
+    font-weight: 800;
+    color: #00ffcc;
+    margin: 15px 0 0;
+    font-size: 1.2rem;
+}
+
+.job-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff4444;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* ========== ПРЕИМУЩЕСТВА ========== */
+.benefits {
+    margin: 70px 0;
+    position: relative;
+}
+
+.benefits-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(0, 100, 80, 0.2), transparent);
+    z-index: -1;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 35px 20px;
+    background: rgba(10, 18, 28, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 32px;
+    transition: 0.3s;
+}
+
+.benefit-card:hover {
+    transform: scale(1.03);
+    background: rgba(20, 40, 50, 0.7);
+}
+
+.benefit-icon {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.benefit-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* ========== КОНТАКТЫ ========== */
+.contact {
+    margin: 70px 0 50px;
+}
+
+.contact-card-wrapper {
+    background: linear-gradient(135deg, rgba(10, 25, 35, 0.9), rgba(5, 15, 20, 0.95));
+    backdrop-filter: blur(16px);
+    border-radius: 56px;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(0, 230, 153, 0.3);
+}
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.contact-btn.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.contact-btn.telegram {
+    background: #0088cc;
+    color: white;
+}
+
+.contact-btn.telegram-second {
+    background: #2aabee;
+    color: white;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.05);
+}
+
+.contact-deco {
+    position: relative;
+}
+
+.floating-emoji {
+    font-size: 3rem;
+    animation: float 3s infinite ease-in-out;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.floating-emoji:nth-child(2) { animation-delay: 0.5s; }
+.floating-emoji:nth-child(3) { animation-delay: 1s; }
+.floating-emoji:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ========== ФУТЕР ========== */
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(0, 230, 153, 0.2);
+    margin-top: 40px;
+    color: #8a9bb0;
+}
+
+.footer-tagline {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #00e699;
+    font-weight: 500;
+}
+
+/* ========== АДАПТИВ ========== */
+@media (max-width: 768px) {
+    .glitch-text {
+        font-size: 2.2rem;
+    }
+    .typed-wrapper {
+        font-size: 1.3rem;
+    }
+    .contact-card-wrapper {
+        padding: 30px;
+    }
+    .container {
+        padding: 0 20px;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
