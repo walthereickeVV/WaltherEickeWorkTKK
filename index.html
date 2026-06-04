@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PROFSTROYTEAM | Работа мечты — зарплата от 200 000 ₽ | Стройка века</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Фоновая картинка со строительной тематикой -->
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+
+    <!-- Анимированный Canvas поверх (лёгкие частицы) -->
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="container">
+        <!-- Магнитный navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hard-hat"></i>
+                    <div class="logo-sparkle"></div>
+                </div>
+                <span class="logo-text">PROF<span class="highlight">STROY</span>TEAM</span>
+            </div>
+            <div class="nav-badge">
+                <i class="fas fa-shield-alt"></i> официальный набор 2026
+            </div>
+        </nav>
+
+        <!-- Hero с эмоциями -->
+        <section class="hero">
+            <div class="hero-glow"></div>
+            <div class="hero-tag">
+                <i class="fas fa-bolt"></i>
+                <span>🏗️ СТРОЙКА ГОДА 🔥</span>
+                <i class="fas fa-fire"></i>
+            </div>
+            <h1 class="glitch-text" data-text="Зарабатывай от 200 000 ₽">Зарабатывай от 200 000 ₽</h1>
+            <div class="typed-wrapper">
+                <span class="typed-prefix">на </span>
+                <span id="typed" class="typed"></span>
+            </div>
+            <p class="hero-sub">📍 Москва | Валдай 🏙️ 🌲 | Бесплатное жильё + питание 🍽️🏠</p>
+            
+            <div class="salary-floating">
+                <div class="salary-card">
+                    <i class="fas fa-city"></i>
+                    <span class="salary-label">Москва</span>
+                    <span class="salary-value">от 150 000 ₽</span>
+                </div>
+                <div class="salary-card accent">
+                    <i class="fas fa-tree"></i>
+                    <span class="salary-label">Валдай</span>
+                    <span class="salary-value">от 200 000 ₽ 💰</span>
+                </div>
+            </div>
+
+            <div class="cta-group">
+                <button class="btn-primary" id="exploreBtn">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>Хочу работать! 🦺</span>
+                </button>
+                <button class="btn-outline" id="contactBtnHeader">
+                    <i class="fab fa-telegram"></i>
+                    <span>Связаться 📲</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Статистика с крутыми эмодзи -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">👷‍♂️</div>
+                <div class="stat-number" data-count="1250">0</div>
+                <div class="stat-label">счастливых строителей</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏫</div>
+                <div class="stat-number" data-count="47">0</div>
+                <div class="stat-label">школ обновили</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💚</div>
+                <div class="stat-number" data-count="98">0</div>
+                <div class="stat-label">% довольны работой</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📆💰</div>
+                <div class="stat-number" data-count="2">0</div>
+                <div class="stat-label">выплаты в месяц</div>
+            </div>
+        </section>
+
+        <!-- Вакансии со строительными смайликами -->
+        <section class="vacancies" id="vacancies">
+            <div class="section-header">
+                <div class="section-badge">🔨 вакансии 🔧</div>
+                <h2>Кто нам нужен? <span class="emoji-big">🦺⛑️</span></h2>
+                <p>Ты профи? Мы ждём именно тебя! Присоединяйся к элитной бригаде</p>
+            </div>
+
+            <div class="job-grid">
+                <div class="job-card featured">
+                    <div class="job-icon">🧱</div>
+                    <h3>Разнорабочие (демонтаж)</h3>
+                    <p>Снятие обоев, сбивка плитки и штукатурки — работа есть всегда!</p>
+                    <div class="job-salary">от 150 000 ₽ 💵</div>
+                    <div class="job-tag">срочно</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-icon">🎨</div>
+                    <h3>Маляры</h3>
+                    <p>Финишная отделка, покраска стен — делай объекты красивыми</p>
+                    <div class="job-salary">до 190 000 ₽</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-icon">🕳️</div>
+                    <h3>Штукатуры</h3>
+                    <p>Механизированная штукатурка — идеальные стены</p>
+                    <div class="job-salary">до 200 000 ₽</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-icon">📐</div>
+                    <h3>Гипсокартонщики</h3>
+                    <p>Монтаж перегородок, откосов — геометрия в твоих руках</p>
+                    <div class="job-salary">до 180 000 ₽</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-icon">🔲</div>
+                    <h3>Плиточники</h3>
+                    <p>Укладка кафеля, керамогранита — идеально ровно</p>
+                    <div class="job-salary">до 210 000 ₽</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-icon">🚰</div>
+                    <h3>Сантехники</h3>
+                    <p>Монтаж инженерных систем — вода и тепло без проблем</p>
+                    <div class="job-salary">до 190 000 ₽</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-icon">🧱🔨</div>
+                    <h3>Каменщики</h3>
+                    <p>Кладка, ремонт конструкций — создаём надёжность на века</p>
+                    <div class="job-salary">до 200 000 ₽</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества — жирно, сочно, с эмоциями -->
+        <section class="benefits">
+            <div class="benefits-bg"></div>
+            <div class="section-header light">
+                <div class="section-badge">🔥 почему мы лучшие? 🔥</div>
+                <h2>Всё включено — работай и кайфуй 🚀</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏠🍞</div>
+                    <h4>Жильё и еда — за наш счёт!</h4>
+                    <p>Комфортные общежития + горячие обеды. Экономь до 50 000 ₽ в месяц</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📄⚖️</div>
+                    <h4>Официально — белую зарплату</h4>
+                    <p>ТК РФ, больничные, отпуск, стаж. Никаких чёрных схем!</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📆💰💸</div>
+                    <h4>Выплаты 2 раза в месяц</h4>
+                    <p>Аванс + зарплата — деньги всегда на карте</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈🏆</div>
+                    <h4>Рост до бригадира</h4>
+                    <p>ЗП вырастет до 300 000+ — у нас реальная карьера</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты с вайбом -->
+        <section class="contact" id="contact">
+            <div class="contact-card-wrapper">
+                <div class="contact-info">
+                    <div class="contact-badge">📲 пиши — не стесняйся!</div>
+                    <h2>Напиши в мессенджер <span class="emoji-blink">💬</span></h2>
+                    <p>Ответим за 5 минут, расскажем про объекты, жильё и поможем с оформлением за 1 день</p>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/375298445000" class="contact-btn whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+375 29 844 5000</span> 📱
+                        </a>
+                        <a href="https://t.me/+375336558368" class="contact-btn telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                            <span>+375 33 655 8368</span> ✈️
+                        </a>
+                        <a href="https://t.me/+375297310322" class="contact-btn telegram-second" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                            <span>+375 29 731 0322</span> 🚀
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-deco">
+                    <div class="floating-emoji">🏗️</div>
+                    <div class="floating-emoji">🪚</div>
+                    <div class="floating-emoji">🔨</div>
+                    <div class="floating-emoji">🦺</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 PROFSTROYTEAM — стройка, которую ты заслужил. Работа на реконструкции школ в Москве и Валдае.</p>
+            <div class="footer-tagline">💪 Стабильная работа — достойная зарплата — уважение бригады 💪</div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
