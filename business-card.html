@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка | PROFSTROYTEAM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0a0f1a, #03060c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+        .business-card {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(10, 25, 35, 0.9);
+            backdrop-filter: blur(16px);
+            border-radius: 48px;
+            padding: 40px 32px;
+            border: 1px solid rgba(0, 230, 153, 0.5);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.6), 0 0 0 2px rgba(0,230,153,0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .business-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 35px 55px rgba(0,230,153,0.2);
+        }
+        .badge {
+            background: #00e69920;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #00e699;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.4rem;
+            background: linear-gradient(135deg, #fff, #00e699);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+        }
+        .sub {
+            color: #b8d0e5;
+            margin-bottom: 28px;
+            font-size: 1rem;
+        }
+        .contact-row {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 28px 0;
+        }
+        .contact-line {
+            background: #00000040;
+            padding: 12px 20px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 1px solid #00e69930;
+        }
+        .contact-line i {
+            color: #00e699;
+            font-size: 1.4rem;
+        }
+        .contact-line a {
+            color: white;
+            text-decoration: none;
+        }
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00e699, transparent);
+            margin: 20px 0;
+        }
+        .salary-badge-card {
+            background: #00e69920;
+            padding: 10px;
+            border-radius: 32px;
+            font-weight: bold;
+        }
+        .qr-placeholder {
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        @media (max-width: 500px) {
+            .business-card { padding: 28px 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="business-card">
+        <div class="badge">🔨 НАДЁЖНЫЙ РАБОТОДАТЕЛЬ 2026 🔧</div>
+        <h1>PROFSTROYTEAM</h1>
+        <div class="sub">Реконструкция школ | Москва · Валдай</div>
+        
+        <div class="contact-row">
+            <div class="contact-line">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/375298445000">+375 29 844 5000</a>
+                <span>📱</span>
+            </div>
+            <div class="contact-line">
+                <i class="fab fa-telegram-plane"></i>
+                <a href="https://t.me/+375336558368">+375 33 655 8368</a>
+                <span>✈️</span>
+            </div>
+            <div class="contact-line">
+                <i class="fab fa-telegram"></i>
+                <a href="https://t.me/+375297310322">+375 29 731 0322</a>
+                <span>🚀</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        
+        <div class="salary-badge-card">
+            💰 Зарплата от 150 000 ₽ (Москва) | от 200 000 ₽ (Валдай) 💰
+        </div>
+        <div class="salary-badge-card" style="margin-top: 12px;">
+            🏠 Бесплатное жильё + 🍲 бесплатное питание
+        </div>
+        
+        <div class="qr-placeholder">
+            <i class="fas fa-qrcode"></i> Наведи камеру — переходи в Telegram
+        </div>
+        <div style="margin-top: 20px; font-size: 12px; opacity: 0.6;">
+            официальное трудоустройство | выплаты 2 раза в месяц
+        </div>
+    </div>
+</body>
+</html>
