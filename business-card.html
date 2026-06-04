@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PROFSTROYTEAM | Премиум визитка | Стройка 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+            position: relative;
+            /* ФОНОВАЯ КАРТИНКА — СТРОЙКА */
+            background-image: url('https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* тёмный оверлей для читаемости */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            z-index: 0;
+        }
+
+        /* главная карточка — стекломорфизм */
+        .business-card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(0px);
+            border-radius: 56px;
+            padding: 50px 44px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .business-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 45px 85px rgba(0, 0, 0, 0.5);
+        }
+
+        /* декоративные уголки со стройкой */
+        .business-card::before {
+            content: '🏗️';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 48px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .business-card::after {
+            content: '🔨';
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            font-size: 52px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* лента "элитный стройотряд" */
+        .construction-ribbon {
+            position: absolute;
+            top: 28px;
+            right: -32px;
+            background: linear-gradient(95deg, #ff6b35, #f7931e);
+            color: white;
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 7px 45px;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+            letter-spacing: 1.5px;
+            z-index: 4;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            background: linear-gradient(105deg, #ff6b3520, #f7931e20);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 20px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #f7931e;
+            margin-bottom: 24px;
+            border: 1px solid rgba(247, 147, 30, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #1a2a3a;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        h1 i {
+            color: #f7931e;
+            font-size: 0.9em;
+        }
+
+        .sub {
+            color: #2c3e50;
+            margin-bottom: 35px;
+            font-size: 1rem;
+            border-left: 4px solid #f7931e;
+            padding-left: 18px;
+            background: #fef9f0;
+            border-radius: 0 16px 16px 0;
+            font-weight: 500;
+        }
+
+        /* контакты с премиум-эффектом */
+        .contact-row {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .contact-line {
+            background: #ffffff;
+            padding: 14px 24px;
+            border-radius: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            border: 1px solid #e9ecef;
+            transition: all 0.25s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .contact-line:hover {
+            border-color: #f7931e;
+            background: #fffaf5;
+            transform: translateX(6px);
+            box-shadow: 0 8px 20px rgba(247, 147, 30, 0.15);
+        }
+
+        .contact-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1e2f3e;
+        }
+
+        .contact-left i {
+            font-size: 1.7rem;
+            color: #f7931e;
+        }
+
+        .contact-right a {
+            color: #f7931e;
+            text-decoration: none;
+            font-weight: 700;
+            background: #fff0e6;
+            padding: 6px 16px;
+            border-radius: 60px;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .contact-right a:hover {
+            background: #f7931e;
+            color: white;
+        }
+
+        /* разделитель с инструментами */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 28px 0;
+            color: #94a3b8;
+        }
+
+        .divider-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f7931e, #f7931e, transparent);
+            flex: 1;
+        }
+
+        /* зарплатный блок — премиум */
+        .salary-block {
+            background: linear-gradient(115deg, #fff8f0, #fff3e8);
+            border-radius: 40px;
+            padding: 24px 24px;
+            margin: 20px 0;
+            border: 1px solid #ffdfb3;
+        }
+
+        .salary-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .salary-item-card {
+            flex: 1;
+            background: white;
+            border-radius: 32px;
+            padding: 18px 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #fdd49c;
+            transition: 0.2s;
+        }
+
+        .salary-item-card:hover {
+            transform: scale(1.02);
+            border-color: #f7931e;
+        }
+
+        .salary-label-icon {
+            font-size: 1.8rem;
+            display: block;
+        }
+
+        .salary-amount {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #e67e22;
+            margin: 10px 0 4px;
+        }
+
+        /* плюшки */
+        .perks-mini {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 28px 0 16px;
+            flex-wrap: wrap;
+        }
+
+        .perk-mini-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+        }
+
+        .perk-mini-item i {
+            color: #f7931e;
+            font-size: 1.1rem;
+        }
+
+        /* строй-инструменты */
+        .tools-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 24px 0 16px;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        .qr-message {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 22px;
+            border-top: 2px dashed #fed7aa;
+            font-size: 0.9rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .qr-message i {
+            color: #f7931e;
+            margin-right: 8px;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 26px;
+            font-size: 0.7rem;
+            color: #5a6e85;
+        }
+
+        .footer-note strong {
+            color: #e67e22;
+        }
+
+        @keyframes pulseLight {
+            0%, 100% { opacity: 0.6; transform: scale(1);}
+            50% { opacity: 1; transform: scale(1.1);}
+        }
+
+        .pulse-icon {
+            display: inline-block;
+            animation: pulseLight 1.5s infinite;
+        }
+
+        @media (max-width: 600px) {
+            .business-card {
+                padding: 32px 22px;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            .contact-line {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-right {
+                align-self: flex-end;
+            }
+            .salary-amount {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="business-card">
+        <div class="construction-ribbon">
+            🏆 ЭЛИТНЫЙ СТРОЙОТРЯД 2026 🏆
+        </div>
+        
+        <div>
+            <div class="badge">
+                <i class="fas fa-crown"></i> НАДЁЖНЫЙ РАБОТОДАТЕЛЬ <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>
+                <i class="fas fa-hard-hat"></i> PROFSTROYTEAM
+                <i class="fas fa-trophy"></i>
+            </h1>
+            <div class="sub">
+                🏗️ Реконструкция школ | Москва · Валдай 🌲 | Стабильность №1
+            </div>
+        </div>
+
+        <!-- Контакты -->
+        <div class="contact-row">
+            <div class="contact-line">
+                <div class="contact-left">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WHATSAPP</span>
+                </div>
+                <div class="contact-right">
+                    <a href="https://wa.me/375298445000" target="_blank">+375 29 844 5000</a>
+                    <span class="pulse-icon">📱</span>
+                </div>
+            </div>
+            <div class="contact-line">
+                <div class="contact-left">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>TELEGRAM</span>
+                </div>
+                <div class="contact-right">
+                    <a href="https://t.me/+375336558368" target="_blank">+375 33 655 8368</a>
+                    <span>✈️</span>
+                </div>
+            </div>
+            <div class="contact-line">
+                <div class="contact-left">
+                    <i class="fab fa-telegram"></i>
+                    <span>TELEGRAM (2)</span>
+                </div>
+                <div class="contact-right">
+                    <a href="https://t.me/+375297310322" target="_blank">+375 29 731 0322</a>
+                    <span>🚀</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">
+            <span class="divider-line"></span>
+            <i class="fas fa-grip-lines-vertical"></i>
+            <span>🔥 ПРЕМИУМ УСЛОВИЯ 🔥</span>
+            <i class="fas fa-grip-lines-vertical"></i>
+            <span class="divider-line"></span>
+        </div>
+
+        <!-- Зарплата -->
+        <div class="salary-block">
+            <div class="salary-grid">
+                <div class="salary-item-card">
+                    <span class="salary-label-icon">🏙️ Москва</span>
+                    <div class="salary-amount">от 150 000 ₽</div>
+                    <small>+ ежемесячные бонусы</small>
+                </div>
+                <div class="salary-item-card">
+                    <span class="salary-label-icon">🌲 Валдай</span>
+                    <div class="salary-amount">от 200 000 ₽</div>
+                    <small>💰 + надбавки за стаж</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Преимущества -->
+        <div class="perks-mini">
+            <div class="perk-mini-item"><i class="fas fa-home"></i> Жильё бесплатно</div>
+            <div class="perk-mini-item"><i class="fas fa-utensils"></i> Питание бесплатно</div>
+            <div class="perk-mini-item"><i class="fas fa-file-contract"></i> Официально</div>
+            <div class="perk-mini-item"><i class="fas fa-calendar-check"></i> 2 выплаты/мес</div>
+            <div class="perk-mini-item"><i class="fas fa-rocket"></i> Рост до 300 000+</div>
+        </div>
+
+        <!-- Строительные эмодзи -->
+        <div class="tools-row">
+            🏗️ 🔨 🧱 🪚 🔧 ⛑️ 🦺 📐
+        </div>
+
+        <div class="qr-message">
+            <i class="fas fa-qrcode fa-fw"></i> Наведи камеру или нажми на номер — пиши сейчас! 
+            <span class="pulse-icon">📲💬🔥</span>
+        </div>
+
+        <div class="footer-note">
+            ⚡ официальное трудоустройство · стаж · отпуск · больничные · ДМС ⚡<br>
+            <strong>© 2026 PROFSTROYTEAM — стройка, которую ты заслужил</strong>
+        </div>
+    </div>
+</body>
+</html>
